@@ -1,0 +1,22 @@
+Package: dafogql
+Title: Functions to Use some GraphQL APIs of Datafordeler for the BBR,
+    DAR, and MAT
+Version: 0.0.1.0000
+Authors@R: 
+    person("Markus", "Schaffer", , "msch@build.aau.dk", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0003-3972-413X"))
+Description: This package provides functions to query some GraphQL APIs of
+    Datafordeler for the BBR (Bygnings- og Boligregistret), DAR (Danmarks
+    Adresseregister) and MAT (Matriklen).
+License: GPL (>= 3)
+URL: https://github.com/markus-schaffer/dafogql
+BugReports: https://github.com/markus-schaffer/dafogql/issues
+Depends:
+    R  (>= 4.1.0)
+Imports:
+    stats,
+    httr2,
+    jsonlite
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
