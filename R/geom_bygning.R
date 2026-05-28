@@ -25,7 +25,7 @@
 #'   client_id     = Sys.getenv("CLIENT_ID"),
 #'   client_secret = Sys.getenv("CLIENT_SECRET"),
 #'   time          = "2026-03-16T00:00:00Z",
-#'   bbr_id        = "00000000-1822-4d89-8bd8-c8eca3065c5f"
+#'   building_id   = "00000000-1822-4d89-8bd8-c8eca3065c5f"
 #' )
 #' }
 #' @export
@@ -48,10 +48,10 @@ geom_bygning <- function(
   daf_query(
     client_id = client_id, client_secret = client_secret,
     time = time, ids = building_id,
-    api_path = "geodkv/v1",
+    api_path = "geodkv/v2",
     query_var_type = "DafDateTime",
     filter_type = "GEODKV_BygningFilterInput",
-    gql_var = "registreringstid",
+    gql_var = "virkningstid",
     resource_name = "GEODKV_Bygning",
     where_builder = function(ids) list(BBRUUID = list(`in` = ids)),
     nodes = nodes, node_names = node_names, batch_size = batch_size
