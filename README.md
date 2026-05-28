@@ -25,6 +25,7 @@ The package covers the following Datafordeler entities:
 - **BBR** – `bbr_bygning()`, `bbr_enhed()`, `bbr_ejendomsrelation()`, `bbr_ejendomsrelation_kommune()`
 - **DAR** – `dar_adress()`, `dar_adressepunkt()`, `dar_husnummer()`
 - **MAT** – `mat_jordstykke()`, `mat_jordstykke2()`
+- **GEOM** – `geom_bygning()`
 
 ## Authentication
 

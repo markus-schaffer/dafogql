@@ -1,7 +1,7 @@
 Package: dafogql
 Title: Functions to Use some GraphQL APIs of Datafordeler for the BBR,
     DAR, and MAT
-Version: 0.0.1.0000
+Version: 0.0.1.1000
 Authors@R: 
     person("Markus", "Schaffer", , "msch@build.aau.dk", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-3972-413X"))
