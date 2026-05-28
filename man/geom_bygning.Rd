@@ -8,7 +8,7 @@ geom_bygning(
   client_id,
   client_secret,
   time,
-  bbr_id,
+  building_id,
   nodes = c("geometri {crs wkt}", "BBRUUID"),
   node_names = c(geometri.crs = "geom_crs", geometri.wkt = "geom_wkt", BBRUUID =
     "building_id"),
@@ -22,7 +22,7 @@ geom_bygning(
 
 \item{time}{DateTime string in ISO 8601 format (e.g. "2026-03-16T00:00:00Z")}
 
-\item{bbr_id}{Character vector of one or more building ids - building_id (BBRUUID)}
+\item{building_id}{Character vector of one or more building ids - building_id (BBRUUID)}
 
 \item{nodes}{Character vector of node field names to return from the query.
 Defaults to \code{c("geometri \{crs wkt\}", "BBRUUID")}.

@@ -3,7 +3,7 @@
 #' @param client_id     OAuth 2.0 client ID
 #' @param client_secret OAuth 2.0 client secret
 #' @param time          DateTime string in ISO 8601 format (e.g. "2026-03-16T00:00:00Z")
-#' @param bbr_id        Character vector of one or more building ids - building_id (BBRUUID)
+#' @param building_id   Character vector of one or more building ids - building_id (BBRUUID)
 #' @param nodes         Character vector of node field names to return from the query.
 #'                      Defaults to \code{c("geometri \{crs wkt\}", "BBRUUID")}.
 #'                      Must be valid field names for the GEODKV_Bygning type.
@@ -33,7 +33,7 @@ geom_bygning <- function(
     client_id,
     client_secret,
     time,
-    bbr_id,
+    building_id,
     nodes = c(
       "geometri {crs wkt}",
       "BBRUUID"
@@ -47,7 +47,7 @@ geom_bygning <- function(
 ) {
   daf_query(
     client_id = client_id, client_secret = client_secret,
-    time = time, ids = bbr_id,
+    time = time, ids = building_id,
     api_path = "geodkv/v1",
     query_var_type = "DafDateTime",
     filter_type = "GEODKV_BygningFilterInput",
