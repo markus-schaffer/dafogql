@@ -51,7 +51,7 @@ result <- geom_bygning(
   client_id     = Sys.getenv("CLIENT_ID"),
   client_secret = Sys.getenv("CLIENT_SECRET"),
   time          = "2026-03-16T00:00:00Z",
-  bbr_id        = "00000000-1822-4d89-8bd8-c8eca3065c5f"
+  building_id   = "00000000-1822-4d89-8bd8-c8eca3065c5f"
 )
 }
 }

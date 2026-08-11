@@ -3,6 +3,7 @@
 export(bbr_bygning)
 export(bbr_ejendomsrelation)
 export(bbr_enhed)
+export(bbr_etage)
 export(dar_adress)
 export(dar_adressepunkt)
 export(dar_husnummer)
