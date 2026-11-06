@@ -2,7 +2,8 @@
 #'
 #' Takes a character vector of addresses, deduplicates them, and washes each
 #' one against the Adressevælger \code{vask} API
-#' (\url{https://adressevaelger.dk/vask/}). Addresses without a match are
+#' (\url{https://adressevaelger.dk/vask/}). Only addresses with a positive
+#' status code (\code{vaskestatus$kode}) count as matches; others are
 #' dropped from the result.
 #'
 #' @param addresses A character vector of address strings to wash.
@@ -12,7 +13,7 @@
 #'   \item{address_wash}{The address string as submitted to the API}
 #'   \item{adr_id}{The matched address id (\code{adresse_id_lokalid}) from DAR}
 #'   \item{adr_text}{The matched address designation (\code{adressebetegnelse})}
-#'   \item{wash_code}{The wash status code (\code{vaskestatus$kode})}
+#'   \item{wash_code}{The wash status code (\code{vaskestatus$kode}); always positive}
 #'   \item{wash_text}{The wash status text (\code{vaskestatus$tekst})}
 #'
 #' @examples
@@ -34,14 +35,15 @@ wash_adressevask <- function(addresses, token = "adressevaelger123") {
   rows <- lapply(resps, \(x) {
     body <- httr2::resp_body_json(x, simplifyVector = FALSE)
     res <- body$vaskeresultat
-    if (is.null(res$adresse_id_lokalid)) {
+    code <- body$vaskestatus$kode
+    if (is.null(code) || !is.numeric(code) || code <= 0 || is.null(res$adresse_id_lokalid)) {
       return(NULL)
     }
     data.frame(
       address_wash = httr2::resp_url_query(x, "adresse")[[1]],
       adr_id       = res$adresse_id_lokalid,
       adr_text     = res$adressebetegnelse %||% NA_character_,
-      wash_code    = body$vaskestatus$kode %||% NA_integer_,
+      wash_code    = as.integer(code),
       wash_text    = body$vaskestatus$tekst %||% NA_character_
     )
   })

@@ -16,13 +16,14 @@ A data frame with columns:
 \item{address_wash}{The address string as submitted to the API}
 \item{adr_id}{The matched address id (\code{adresse_id_lokalid}) from DAR}
 \item{adr_text}{The matched address designation (\code{adressebetegnelse})}
-\item{wash_code}{The wash status code (\code{vaskestatus$kode})}
+\item{wash_code}{The wash status code (\code{vaskestatus$kode}); always positive}
 \item{wash_text}{The wash status text (\code{vaskestatus$tekst})}
 }
 \description{
 Takes a character vector of addresses, deduplicates them, and washes each
 one against the Adressevælger \code{vask} API
-(\url{https://adressevaelger.dk/vask/}). Addresses without a match are
+(\url{https://adressevaelger.dk/vask/}). Only addresses with a positive
+status code (\code{vaskestatus$kode}) count as matches; others are
 dropped from the result.
 }
 \examples{
