@@ -2,7 +2,7 @@
 % Please edit documentation in R/wash_unit_adr.R
 \name{wash_unit_adr}
 \alias{wash_unit_adr}
-\title{Wash Unit Addresses via Dataforsyningen Address Validation API}
+\title{(Deprecated) Wash Unit Addresses via Dataforsyningen Address Validation API}
 \usage{
 wash_unit_adr(addresses)
 }
@@ -19,6 +19,11 @@ Takes a character vector of addresses, deduplicates them, and validates each
 against the Dataforsyningen address washing API. Addresses classified as
 category "C" (no match) are dropped from the result.
 }
+\section{Deprecated}{
+The Dataforsyningen datavask API is out of service. Use \code{\link[=wash_adressevask]{wash_adressevask()}}
+instead.
+}
+
 \examples{
 \dontrun{
 result <- wash_unit_adr(c("Rådhuspladsen 1, 1550 København V"))

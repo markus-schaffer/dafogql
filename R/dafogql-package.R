@@ -40,8 +40,9 @@
 #' @section Address washing helpers:
 #' | Function | Description |
 #' |---|---|
-#' | [wash_bldg_adr()] | Validate free-text addresses against the Dataforsyningen *access address* (adgangsadresser) API and return matched building address IDs |
-#' | [wash_unit_adr()] | Validate free-text addresses against the Dataforsyningen *address* (adresser) API and return matched unit address IDs |
+#' | [wash_bldg_adr()] (deprecated) | Validate free-text addresses against the Dataforsyningen *access address* (adgangsadresser) API and return matched building address IDs |
+#' | [wash_unit_adr()] (deprecated) | Validate free-text addresses against the Dataforsyningen *address* (adresser) API and return matched unit address IDs |
+#' | [wash_adressevask()] | Wash free-text addresses with the Adressevælger *vask* API and return DAR address IDs |
 #'
 #' @section Authentication:
 #' All GraphQL functions authenticate via OAuth 2.0 client credentials against

@@ -1,10 +1,14 @@
-#' Wash Unit Addresses via Dataforsyningen Address Validation API
+#' (Deprecated) Wash Unit Addresses via Dataforsyningen Address Validation API
 #'
 #' Takes a character vector of addresses, deduplicates them, and validates each
 #' against the Dataforsyningen address washing API. Addresses classified as
 #' category "C" (no match) are dropped from the result.
 #'
 #' @param addresses A character vector of address strings to wash/validate.
+#'
+#' @section Deprecated:
+#' The Dataforsyningen datavask API is out of service. Use [wash_adressevask()]
+#' instead.
 #'
 #' @return A data frame with columns:
 #'   \item{address_wash}{The original address string as submitted to the API}
@@ -16,6 +20,7 @@
 #' }
 #' @export
 wash_unit_adr <- function(addresses) {
+  .Deprecated("wash_adressevask", package = "dafogql")
   wash_address(addresses,
     api_path       = "adresser",
     id_col_name    = "unit_adr_id",
